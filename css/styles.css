@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+}
+
+#reloj {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#video-container {
+    margin-bottom: 20px;
+}
+
+#player {
+    width: 640px;
+    height: 360px;
+}
+
+button {
+    margin: 5px;
+}

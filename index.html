@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Carrera de Caballos</title>
+   <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+   <div id="reloj">00:00:00</div>
+   <div id="video-container"></div>
+   <button id="startButton">Iniciar Carrera</button>
+   <button id="pauseButton">Pausar Llegada</button>
+   <button id="backFrameButton">Retroceder Cuadro</button>
+   <button id="forwardFrameButton">Avanzar Cuadro</button>
+   <button id="resetClockButton">Reiniciar Reloj</button>
+
+   <!-- Cargar iframePlayerApi directamente desde el CDN -->
+   <script src="https://cdn.jsdelivr.net/npm/iframe-player-api@1.0.9/dist/iframePlayerApi.js"></script>
+   <script src="https://www.youtube.com/iframe_api"></script>
+   <script src="./js/app.js" defer></script>
+</body>
+
+</html>
