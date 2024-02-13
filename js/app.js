@@ -1,22 +1,27 @@
 let player;
 let startTime;
 let pauseTime;
-
-let isPaused = false; // Nuevo flag para controlar si el video está pausado
+let isPaused = true; // Inicializado como pausado al principio
 let frameAdvance = 1 / 30; // Avance por cuadro (1/30 segundos para videos a 30 fps)
 
 function onPlayerReady(event) {
     document.getElementById('startButton').addEventListener('click', function() {
-        startTime = new Date().getTime();
+        if (isPaused) {
+            // Si está pausado, comenzar desde cero
+            startTime = new Date().getTime();
+        } else {
+            // Si no está pausado, ajustar startTime para reflejar el tiempo transcurrido antes de reanudar
+            startTime += new Date().getTime() - pauseTime;
+        }
         player.playVideo();
-        isPaused = false; // Reiniciar el flag de pausa
+        isPaused = false;
         updateClock();
     });
 
     document.getElementById('pauseButton').addEventListener('click', function() {
         pauseTime = new Date().getTime();
         player.pauseVideo();
-        isPaused = true; // Actualizar el flag de pausa
+        isPaused = true;
         updateClock();
     });
 
@@ -39,9 +44,9 @@ function onPlayerReady(event) {
     });
 
     document.getElementById('resetClockButton').addEventListener('click', function() {
-        startTime = new Date().getTime();
+        startTime = 0;
         pauseTime = 0;
-        isPaused = false;
+        isPaused = true;
         updateClock();
     });
 }
